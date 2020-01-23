@@ -1,0 +1,15 @@
+Strong scaling of EAGLE25 box replicated twice (8x larger volume than EAGLE25 box) over multiple nodes. 
+Hydro only, run for 3000 steps.
+
+Modules used:
+intel_comp/2018-update2 intel_mpi/2018 fftw/3.3.7 gsl/2.4 hdf5/1.10.2 parmetis/4.0.3-64bit
+
+Configure with:
+./configure --enable-ipo --with-tbbmalloc   \
+            --disable-hand-vec              \
+            --with-parmetis                 \
+            -disable-doxygen-doc            \
+            CFLAGS='-qopt-zmm-usage=high'
+
+Run with:
+mpirun -np X ../../swift_mpi --pin --hydro --self-gravity --threads=14 -n 3000 -P InitialConditions:replicate:2 eagle_25.yml

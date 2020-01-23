@@ -1,0 +1,14 @@
+Strong scaling of EAGLE12 box single node. 
+Run one EAGLE12 box 
+Hydro only, run for 4000 steps.
+
+Modules used:
+UPDATE
+
+Configure with:
+./configure --enable-ipo --with-tbbmalloc -disable-doxygen-doc CFLAGS=-qopt-zmm-usage=high
+
+Run with:
+../../swift --pin --hydro --self-gravity --threads=X -n 4000 -P Scheduler:max_top_level_cells:8 -P Gravity:mesh_side_length:32 eagle_12.yml
+Where "X" is the number of threads to run on.
+For 16, 28 cores run swift_mpi with 2 ranks and threads=8,14 respectively.

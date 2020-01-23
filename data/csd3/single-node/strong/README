@@ -1,0 +1,15 @@
+Weak scaling of EAGLE12 box single node. 
+Run one EAGLE12 box on 1, 8, and 27 threads
+Hydro only, run for 2000 steps.
+
+Modules used:
+slurm rhel7/global intel/compilers/2018.4 intel/impi/2018.4/intel gsl/2.4 fftw/intel/3.3.3 hdf5-1.10.1-intel-17.0.4-nsuex4z
+
+
+Configure with:
+./configure --with-tbbmalloc --with-hdf5=/usr/lib64/ -disable-doxygen-doc CFLAGS=-qopt-zmm-usage=high CC=icc MPICC=mpiicc
+
+Run with:
+../../swift --pin --hydro --self-gravity --threads=1 -n 2000 -v 1 -P Scheduler:max_top_level_cells:8 -P Gravity:mesh_side_length:32 eagle_12.yml
+../../swift --pin --hydro --self-gravity --threads=8 -n 2000 -v 1 -P Scheduler:max_top_level_cells:8 -P Gravity:mesh_side_length:32 eagle_12.yml
+../../swift --pin --hydro --self-gravity --threads=27 -n 2000 -v 1 -P Scheduler:max_top_level_cells:8 -P Gravity:mesh_side_length:32 eagle_12.yml

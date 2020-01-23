@@ -1,0 +1,15 @@
+Weak scaling of EAGLE12 box single node. 
+Run one EAGLE12 box on 1 thread, replicate twice (8x larger) on 8 threads, replicate 3 times (27x larger) on 27 threads
+Hydro only, run for 2000 steps.
+
+Modules used:
+gsl/intel/2.4 intel/vtune/2019 intel/license intel/compilers/18.0.3 hdf5/intel/1.10.2 intel/mpi/18.0.3 fftw/intel/3.3.7
+
+Configure with:
+./configure --enable-ipo --with-tbbmalloc -disable-doxygen-doc CFLAGS=-qopt-zmm-usage=high CC=mpiicc
+
+Run with:
+../../swift --pin --hydro --self-gravity --threads=1 -n 2000 -v 1 -P Scheduler:max_top_level_cells:8 -P Gravity:mesh_side_length:32 eagle_12.yml
+../../swift --pin --hydro --self-gravity --threads=8 -n 2000 -v 1 -P Scheduler:max_top_level_cells:16 -P Gravity:mesh_side_length:64 -P InitialConditions:replicate:2 eagle_12.yml
+../../swift --pin --hydro --self-gravity --threads=27 -n 2000 -v 1 -P Scheduler:max_top_level_cells:24 -P Gravity:mesh_side_length:96 -P InitialConditions:replicate:3 eagle_12.yml
+

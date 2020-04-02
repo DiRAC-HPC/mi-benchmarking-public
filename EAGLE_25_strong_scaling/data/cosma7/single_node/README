@@ -1,0 +1,16 @@
+Strong scaling of EAGLE25 box over single node. 
+Full EAGLE physics, run for 4000 steps.
+
+Modules used:
+intel_comp/2018-update2 intel_mpi/2018 fftw/3.3.7 gsl/2.4 hdf5/1.10.2 parmetis/4.0.3-64bit
+
+Configure with:
+./configure --enable-ipo --with-tbbmalloc   \
+	    --with-subgrid=EAGLE	    \
+            --disable-hand-vec              \
+            --with-parmetis                 \
+            -disable-doxygen-doc            \
+            CFLAGS='-qopt-zmm-usage=high'
+
+Run with:
+./swift --pin --cosmology --hydro --self-gravity --stars --cooling --feedback --star-formation --threads=X -n 4000 eagle_25.yml

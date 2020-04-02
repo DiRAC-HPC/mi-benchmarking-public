@@ -1,4 +1,4 @@
-# DiRAC Benchmarks (Memory Intensive systems)
+# DiRAC Benchmark (Memory Intensive)
 
 This repository contains data and analysis for benchmarking the [SWIFT](http://icc.dur.ac.uk/swift/) gravity and SPH solver on the [DiRAC](http://www.dirac.ac.uk) systems.
 
@@ -78,6 +78,7 @@ The benchmark has been run on the following systems:
 | System | Node | Interconnect | Combinations |
 |--------|------|--------------|--------------|
 | DiRAC Memory Intensive (COSMA7) | 2x Intel Xeon Skylake Gold 5120, 512 GiB DDR4 | Mellanox EDR | Intel 2018; Intel MPI 2018 |
+| DiRAC DIaC (Peta4-Skylake) | 2x Intel Xeon Skylake Gold 6142, min. 192 GiB DDR4 | Intel OPA | Intel 2018; Intel MPI 2018 | 
 
 Output from benchmark runs can be found in the [results/](results/) subdirectory.
 
@@ -88,5 +89,4 @@ Each run produces a `timesteps_X.txt` file, where `X` denotes the number of thre
 ## Further information
 
 If you want further information on these benchmarks, please contact the DiRAC Helpdesk at: dirac-support@epcc.ed.ac.uk
-
 

@@ -1,0 +1,133 @@
+[0000] [00000.0] main: MPI is up and running with 2 node(s).
+
+ Welcome to the cosmological hydrodynamical code
+    ______       _________________
+   / ___/ |     / /  _/ ___/_  __/
+   \__ \| | /| / // // /_   / /   
+  ___/ /| |/ |/ // // __/  / /    
+ /____/ |__/|__/___/_/    /_/     
+ SPH With Inter-dependent Fine-grained Tasking
+
+ Version : 0.8.4
+ Revision: v0.8.4-dirty, Branch: (HEAD detached at fffd980bd), Date: 2019-07-30 14:11:20 +0100
+ Webpage : www.swiftsim.com
+
+ Config. options: '--enable-ipo --with-tbbmalloc --with-hdf5=/rds/user/dc-bori1/rds-dirac-ds007/software/hdf5-intel2018 --with-parmetis=/rds/user/dc-bori1/rds-dirac-ds007/software/parmetis-intel2018 -disable-doxygen-doc CFLAGS=-qopt-zmm-usage=high -I/rds/user/dc-bori1/rds-dirac-ds007/software/parmetis-intel2018/include LDFLAGS=-L/rds/user/dc-bori1/rds-dirac-ds007/software/parmetis-intel2018/lib CC=icc MPICC=mpiicc'
+
+ Compiler: ICC, Version: 18.0.20180823
+ CFLAGS  : '-qopt-zmm-usage=high -I/rds/user/dc-bori1/rds-dirac-ds007/software/parmetis-intel2018/include -ip -ipo -O3 -ansi-alias -xCORE-AVX512 -pthread -fno-builtin-malloc -fno-builtin-calloc -fno-builtin-realloc -fno-builtin-free -w2 -Wunused-variable -Wshadow -Werror -Wstrict-prototypes'
+
+ HDF5 library version: 1.8.12
+ FFTW library version: 3.x (details not available)
+ GSL  library version: 2.4
+ MPI library: Intel(R) MPI Library 2018 Update 4 for Linux* OS (MPI std v3.1)
+ ParMETIS library version: 4.0.3
+
+[0000] [00000.0] main: CPU frequency used for tick conversion: 2593911897 Hz
+[0000] [00000.0] main: sizeof(part)        is  128 bytes.
+[0000] [00000.0] main: sizeof(xpart)       is   64 bytes.
+[0000] [00000.0] main: sizeof(spart)       is  128 bytes.
+[0000] [00000.0] main: sizeof(bpart)       is   96 bytes.
+[0000] [00000.0] main: sizeof(gpart)       is   64 bytes.
+[0000] [00000.0] main: sizeof(multipole)   is  176 bytes.
+[0000] [00000.0] main: sizeof(grav_tensor) is  144 bytes.
+[0000] [00000.0] main: sizeof(task)        is   96 bytes.
+[0000] [00000.0] main: sizeof(cell)        is 1216 bytes.
+[0000] [00000.0] main: Reading runtime parameters from file 'eagle_25.yml'
+[0000] [00000.0] main: Overwriting values read from the YAML file with command-line values.
+[0000] [00000.0] main: Using ParMETIS partitioning:
+[0000] [00000.0] main:   initial partitioning: memory balanced, using particle weighted cells
+[0000] [00000.0] main:   repartitioning: edge and vertex task cost weights
+[0000] [00000.0] main: Internal unit system: U_M = 1.988480e+43 g.
+[0000] [00000.0] main: Internal unit system: U_L = 3.085678e+24 cm.
+[0000] [00000.0] main: Internal unit system: U_t = 3.085678e+19 s.
+[0000] [00000.0] main: Internal unit system: U_I = 1.000000e+00 A.
+[0000] [00000.0] main: Internal unit system: U_T = 1.000000e+00 K.
+[0000] [00000.0] phys_const_print:    Gravitational constant = 4.300927e+01
+[0000] [00000.0] phys_const_print:            Speed of light = 2.997925e+05
+[0000] [00000.0] phys_const_print:           Planck constant = 1.079902e-99
+[0000] [00000.0] phys_const_print:        Boltzmann constant = 6.943236e-70
+[0000] [00000.0] phys_const_print:     Thomson cross-section = 6.986845e-74
+[0000] [00000.0] phys_const_print:             Electron-Volt = 8.057293e-66
+[0000] [00000.0] phys_const_print:                      Year = 1.022690e-12
+[0000] [00000.0] phys_const_print:         Astronomical Unit = 4.848137e-12
+[0000] [00000.0] phys_const_print:                    Parsec = 1.000000e-06
+[0000] [00000.0] phys_const_print:                Solar mass = 1.000000e-10
+[0000] [00000.0] phys_const_print:                  km/s/Mpc = 1.000000e+02
+[0000] [00000.0] cooling_print_backend: Cooling function is 'No cooling'.
+[0000] [00000.0] chemistry_print_backend: Chemistry function is 'No chemistry'.
+[0000] [00000.0] main: Reading ICs from file './EAGLE_ICs_25.hdf5'
+[0000] [00000.0] main: Cleaning up h-factors (h=1.000000)
+[0000] [00000.0] main: Cleaning up a-factors from velocity (a=1.000000)
+[0000] [00000.1] io_read_unit_system: Reading IC units from ICs.
+[0000] [00000.1] read_ic_serial: Conversion needed from:
+[0000] [00000.1] read_ic_serial: (ICs) Unit system: U_M =      1.989000e+43 g.
+[0000] [00000.1] read_ic_serial: (ICs) Unit system: U_L =      3.085678e+24 cm.
+[0000] [00000.1] read_ic_serial: (ICs) Unit system: U_t =      3.085678e+19 s.
+[0000] [00000.1] read_ic_serial: (ICs) Unit system: U_I =      1.000000e+00 A.
+[0000] [00000.1] read_ic_serial: (ICs) Unit system: U_T =      1.000000e+00 K.
+[0000] [00000.1] read_ic_serial: to:
+[0000] [00000.1] read_ic_serial: (internal) Unit system: U_M = 1.988480e+43 g.
+[0000] [00000.1] read_ic_serial: (internal) Unit system: U_L = 3.085678e+24 cm.
+[0000] [00000.1] read_ic_serial: (internal) Unit system: U_t = 3.085678e+19 s.
+[0000] [00000.1] read_ic_serial: (internal) Unit system: U_I = 1.000000e+00 A.
+[0000] [00000.1] read_ic_serial: (internal) Unit system: U_T = 1.000000e+00 K.
+[0000] [00172.7] main: Reading initial conditions took 172655.219 ms.
+[0000] [00172.7] main: Read 50726350 gas particles, 0 stars particles, 0 black hole particles and 103883726 gparts from the ICs.
+[0000] [00205.2] main: space_init took 32537.426 ms.
+[0000] [00205.2] potential_print_backend: External potential is 'No external potential'.
+[0000] [00205.2] main: space dimensions are [ 33.885 33.885 33.885 ].
+[0000] [00205.2] main: space is periodic.
+[0000] [00205.2] main: highest-level cell dimensions are [ 12 12 12 ].
+[0000] [00205.2] main: 202905400 parts in 1728 cells.
+[0000] [00205.2] main: 415534904 gparts in 1728 cells.
+[0000] [00205.2] main: 0 sparts in 1728 cells.
+[0000] [00205.2] main: 0 bparts in 1728 cells.
+[0000] [00205.2] main: maximum depth is 0.
+[0000] [00205.2] engine_config: Running simulation 'Untitled SWIFT simulation'.
+[0000] [00205.2] engine_config: prefer NUMA-distant CPUs
+[0000] [00205.2] engine_init: cpu map is [ 0 2 4 6 8 10 12 14 16 18 20 22 24 26 28 30 ].
+[0000] [00205.2] engine_policy: engine policies are [  'steal'  'keep'  'mpi'  'numa affinity'  'hydro'  'self gravity'  ]
+[0000] [00205.2] eos_print: Equation of state: Ideal gas.
+[0000] [00205.2] eos_print: Adiabatic index gamma: 1.666667.
+[0000] [00205.2] hydro_props_print: Hydrodynamic scheme: Gadget-2 version of SPH (Springel 2005) in 3D.
+[0000] [00205.2] hydro_props_print: Hydrodynamic kernel: Cubic spline (M4) with eta=1.234800 (48.00 neighbours).
+[0000] [00205.2] hydro_props_print: Hydrodynamic relative tolerance in h: 0.00010 (+/- 0.0144 neighbours).
+[0000] [00205.2] hydro_props_print: Hydrodynamic integration: CFL parameter: 0.1000.
+[0000] [00205.2] viscosity_print: Artificial viscosity parameters set to alpha: 0.800
+[0000] [00205.2] hydro_props_print: Hydrodynamic integration: Max change of volume: 1.40 (max|dlog(h)/dt|=0.112157).
+[0000] [00205.2] hydro_props_print: Minimal gas temperature set to 100.000000
+[0000] [00205.2] entropy_floor_print: Entropy floor is 'no entropy floor'.
+[0000] [00205.2] gravity_props_print: Self-gravity scheme: Default (no potential)
+[0000] [00205.2] gravity_props_print: Self-gravity scheme: FMM-MM with m-poles of order 4
+[0000] [00205.2] gravity_props_print: Self-gravity time integration: eta=0.0250
+[0000] [00205.2] gravity_props_print: Self-gravity opening angle:  theta=0.7000
+[0000] [00205.2] gravity_props_print: Self-gravity softening functional form: Wendland-C2
+[0000] [00205.2] gravity_props_print: Self-gravity comoving softening:    epsilon=0.0021 (Plummer equivalent: 0.0007)
+[0000] [00205.2] gravity_props_print: Self-gravity maximal physical softening:    epsilon=0.0021 (Plummer equivalent: 0.0007)
+[0000] [00205.2] gravity_props_print: Self-gravity mesh side-length: N=64
+[0000] [00205.2] gravity_props_print: Self-gravity mesh smoothing-scale: a_smooth=1.250000
+[0000] [00205.2] gravity_props_print: Self-gravity tree cut-off ratio: r_cut_max=4.500000
+[0000] [00205.2] gravity_props_print: Self-gravity truncation cut-off ratio: r_cut_min=0.100000
+[0000] [00205.2] gravity_props_print: Self-gravity mesh truncation function: Gadget-like (using erfc())
+[0000] [00205.2] gravity_props_print: Self-gravity tree update frequency: f=0.010000
+[0000] [00205.2] engine_config: Absolute minimal timestep size: 6.938894e-20
+[0000] [00205.2] engine_config: Minimal timestep size (on time-line): 7.450580e-11
+[0000] [00205.2] engine_config: Maximal timestep size (on time-line): 1.000000e-02
+[0000] [00207.3] engine_config: Restarts will be dumped every 5.000000 hours
+[0000] [00207.3] main: engine_init took 2129.524 ms.
+[0000] [00207.3] main: Running on 405810800 gas particles, 0 stars particles 0 black hole particles and 425259008 DM particles (831069808 gravity particles)
+[0000] [00207.3] main: from t=0.000e+00 until t=1.000e-02 with 2 ranks, 16 threads / rank and 16 task queues / rank (dt_min=1.000e-10, dt_max=1.000e-02)...
+[0000] [00345.2] engine_init_particles: Setting particles to a valid state...
+[0000] [00348.6] engine_init_particles: Computing initial gas densities.
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   PID 33911 RUNNING AT cpu-e-1018
+=   EXIT CODE: 9
+=   CLEANING UP REMAINING PROCESSES
+=   YOU CAN IGNORE THE BELOW CLEANUP MESSAGES
+===================================================================================
+   Intel(R) MPI Library troubleshooting guide:
+      https://software.intel.com/node/561764
+===================================================================================

@@ -1,0 +1,15 @@
+Weak scaling of EAGLE12 box single node. 
+Hydro only, run for 2000 steps.
+
+Modules used:
+gcc/7.3 hdf5/gcc/1.10.2 fftw/gcc/3.3.7 gsl/gcc/2.4 openmpi/gcc
+
+
+Configure with:
+./configure --disable-optimization CFLAGS=-O3 -fomit-frame-pointer -malign-double -fstrict-aliasing -ffast-math -funroll-loops -march=skylake -mavx2 --enable-task-debugging -disable-doxygen-doc
+
+
+Run with:
+../../../swift --pin --hydro --self-gravity --threads=X -n 3000 -P Scheduler:max_top_level_cells:8 -P Gravity:mesh_side_length:32 eagle_12.yml
+where X is the number of threads. For 32 core run use:
+mpirun -np 2 ../../../swift_mpi --pin --hydro --self-gravity --threads=16 -n 3000 -P Scheduler:max_top_level_cells:8 -P Gravity:mesh_side_length:32 eagle_12.yml

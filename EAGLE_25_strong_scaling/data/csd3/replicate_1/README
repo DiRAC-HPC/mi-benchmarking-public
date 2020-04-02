@@ -1,0 +1,19 @@
+Strong scaling of EAGLE25 box over multiple nodes.
+Hydro only, run for 3000 steps.
+
+Modules used:
+intel/compilers/2018.4 intel/impi/2018.4/intel gsl/2.4 fftw/intel/3.3.3
+
+Configure with:
+./configure --enable-ipo                                                                                                \
+            --with-tbbmalloc                                                                                            \
+            --with-hdf5=/PATH/TO/HDF5/INSTALL                                      \
+            --with-parmetis=/PATH/TO/PARMETIS/INSTALL                              \
+            -disable-doxygen-doc                                                                                        \
+            CFLAGS='-qopt-zmm-usage=high -I/PATH/TO/PARMETIS/INCLUDE'      \
+            LDFLAGS='-L/PATH/TO/PARMETIS/LIB'                              \
+            CC=icc MPICC=mpiicc
+
+
+Run with:
+mpirun -np X ../../swift_mpi --pin --hydro --self-gravity --threads=16 -n 3000 eagle_25.yml

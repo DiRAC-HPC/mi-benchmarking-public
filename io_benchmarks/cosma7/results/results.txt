@@ -1,0 +1,7 @@
+2 node, EAGLE 50
+restart 64GB, 39.1s: 1.64 GB/s 
+snapshots 47GB, 41s: 1.14 GB/s
+
+16 node EAGLE 50 replicate 2
+restart 512GB, 34.6s: 14.8 GB/s
+snapshot 370GB, 52.9, 57 s: 7, 6.5 GB/s

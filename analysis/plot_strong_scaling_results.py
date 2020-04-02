@@ -81,6 +81,8 @@ legendTitle = " "
 
 inputFileNames = []
 
+nsteps = 2000
+
 # Work out how many data series there are
 if len(sys.argv) == 1:
     print("Please specify an input file in the arguments.")
@@ -176,6 +178,7 @@ def parse_files(listStr):
         
         # Sort the file list in ascending order acording to the thread number
         file_list[i] = [file_list[i][j] for j in sorted_indices[i]]
+        print(file_list)
 
         parse_header(file_list[i][0])
 
@@ -190,8 +193,8 @@ def parse_files(listStr):
 
         # Loop over all files for a given series and load the times
         for j in range(0, len(file_list[i])):
-            times = np.loadtxt(file_list[i][j], usecols=(11,))
-            updates = np.loadtxt(file_list[i][j], usecols=(7,))
+            times = np.loadtxt(file_list[i][j], usecols=(11,), max_rows=nsteps)
+            updates = np.loadtxt(file_list[i][j], usecols=(7,), max_rows=nsteps)
             totalTime[i].append(np.sum(times))
 
         sumTotal.append(np.sum(totalTime[i]))
@@ -378,8 +381,8 @@ def plot_results(totalTime, speedUp, parallelEff, numSeries, xList):
 # Calculate results
 
 # To generate a scaling plot against the number of nodes uncomment the following line.
-#xListName = "Nodes"
-xListName = "Threads"
+xListName = "Nodes"
+#xListName = "Threads"
 
 (totalTime, speedUp, parallelEff) = parse_files(xListName)
 

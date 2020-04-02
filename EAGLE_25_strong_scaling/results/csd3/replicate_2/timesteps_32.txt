@@ -1,0 +1,14 @@
+# Host: cpu-e-1018
+# Branch: (HEAD detached at fffd980bd)
+# Revision: v0.8.4-dirty
+# Compiler: ICC, Version: 18.0.20180823 
+# Number of threads: 16
+# Number of MPI ranks: 2
+# Hydrodynamic scheme: Gadget-2 version of SPH (Springel 2005)
+# Hydrodynamic kernel: Cubic spline (M4)
+# No. of neighbours: 48.00 +/- 0.0144
+# Eta: 1.234800
+# Config: '--enable-ipo --with-tbbmalloc --with-hdf5=/rds/user/dc-bori1/rds-dirac-ds007/software/hdf5-intel2018 --with-parmetis=/rds/user/dc-bori1/rds-dirac-ds007/software/parmetis-intel2018 -disable-doxygen-doc CFLAGS=-qopt-zmm-usage=high -I/rds/user/dc-bori1/rds-dirac-ds007/software/parmetis-intel2018/include LDFLAGS=-L/rds/user/dc-bori1/rds-dirac-ds007/software/parmetis-intel2018/lib CC=icc MPICC=mpiicc'
+# CFLAGS: '-qopt-zmm-usage=high -I/rds/user/dc-bori1/rds-dirac-ds007/software/parmetis-intel2018/include -ip -ipo -O3 -ansi-alias -xCORE-AVX512 -pthread -fno-builtin-malloc -fno-builtin-calloc -fno-builtin-realloc -fno-builtin-free -w2 -Wunused-variable -Wshadow -Werror -Wstrict-prototypes'
+# Step Properties: Rebuild=1, Redistribute=2, Repartition=4, Statistics=8, Snapshot=16, Restarts=32 STF=64, FOF=128, logger=256
+#   Step           Time Scale-factor     Redshift      Time-step Time-bins      Updates    g-Updates    s-Updates    b-Updates  Wall-clock time [ms]  Props

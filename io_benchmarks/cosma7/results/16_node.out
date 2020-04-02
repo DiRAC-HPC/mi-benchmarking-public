@@ -1,0 +1,529 @@
+====
+Starting job 1789666 at Tue  3 Mar 13:56:53 GMT 2020 for user dc-bori1.
+Running on nodes: m[7014-7015,7017,7025-7026,7031,7035,7060,7134,7154,7172,7190,7192,7197,7230,7249]
+====
+[0000] [00000.0] main: MPI is up and running with 32 node(s).
+
+ Welcome to the cosmological hydrodynamical code
+    ______       _________________
+   / ___/ |     / /  _/ ___/_  __/
+   \__ \| | /| / // // /_   / /   
+  ___/ /| |/ |/ // // __/  / /    
+ /____/ |__/|__/___/_/    /_/     
+ SPH With Inter-dependent Fine-grained Tasking
+
+ Version : 0.8.4
+ Revision: v0.8.4-dirty, Branch: (detached from fffd980), Date: 2019-07-30 14:11:20 +0100
+ Webpage : www.swiftsim.com
+
+ Config. options: '--enable-ipo --with-tbbmalloc --disable-hand-vec --with-parmetis -disable-doxygen-doc CFLAGS=-qopt-zmm-usage=high'
+
+ Compiler: ICC, Version: 18.0.20180210
+ CFLAGS  : '-qopt-zmm-usage=high -ip -ipo -O3 -ansi-alias -xCORE-AVX512 -pthread -fno-builtin-malloc -fno-builtin-calloc -fno-builtin-realloc -fno-builtin-free -w2 -Wunused-variable -Wshadow -Werror -Wstrict-prototypes'
+
+ HDF5 library version: 1.10.3
+ FFTW library version: 3.x (details not available)
+ GSL  library version: 2.4
+ MPI library: Intel(R) MPI Library 2018 Update 2 for Linux* OS (MPI std v3.1)
+ ParMETIS library version: 4.0.3
+
+[0000] [00000.0] main: CPU frequency used for tick conversion: 2194838375 Hz
+[0000] [00000.0] main: Rank 0 running on: m7014.pri.cosma7.alces.network
+[0000] [00000.0] main: sizeof(part)        is  128 bytes.
+[0000] [00000.0] main: sizeof(xpart)       is   64 bytes.
+[0000] [00000.0] main: sizeof(spart)       is  128 bytes.
+[0000] [00000.0] main: sizeof(bpart)       is   96 bytes.
+[0000] [00000.0] main: sizeof(gpart)       is   64 bytes.
+[0000] [00000.0] main: sizeof(multipole)   is  176 bytes.
+[0000] [00000.0] main: sizeof(grav_tensor) is  144 bytes.
+[0000] [00000.0] main: sizeof(task)        is   96 bytes.
+[0000] [00000.0] main: sizeof(cell)        is 1216 bytes.
+[0000] [00000.0] main: Reading runtime parameters from file 'eagle_50.yml'
+[0000] [00000.0] main: Overwriting values read from the YAML file with command-line values.
+[0000] [00000.0] main: Using ParMETIS partitioning:
+[0000] [00000.0] main:   initial partitioning: memory balanced, using particle weighted cells
+[0000] [00000.0] main:   repartitioning: edge and vertex task cost weights
+[0000] [00000.0] main: Internal unit system: U_M = 1.988480e+43 g.
+[0000] [00000.0] main: Internal unit system: U_L = 3.085678e+24 cm.
+[0000] [00000.0] main: Internal unit system: U_t = 3.085678e+19 s.
+[0000] [00000.0] main: Internal unit system: U_I = 1.000000e+00 A.
+[0000] [00000.0] main: Internal unit system: U_T = 1.000000e+00 K.
+[0000] [00000.0] phys_const_print:    Gravitational constant = 4.300927e+01
+[0000] [00000.0] phys_const_print:            Speed of light = 2.997925e+05
+[0000] [00000.0] phys_const_print:           Planck constant = 1.079902e-99
+[0000] [00000.0] phys_const_print:        Boltzmann constant = 6.943236e-70
+[0000] [00000.0] phys_const_print:     Thomson cross-section = 6.986845e-74
+[0000] [00000.0] phys_const_print:             Electron-Volt = 8.057293e-66
+[0000] [00000.0] phys_const_print:                      Year = 1.022690e-12
+[0000] [00000.0] phys_const_print:         Astronomical Unit = 4.848137e-12
+[0000] [00000.0] phys_const_print:                    Parsec = 1.000000e-06
+[0000] [00000.0] phys_const_print:                Solar mass = 1.000000e-10
+[0000] [00000.0] phys_const_print:                  km/s/Mpc = 1.000000e+02
+[0000] [00000.0] cooling_print_backend: Cooling function is 'No cooling'.
+[0000] [00000.0] chemistry_print_backend: Chemistry function is 'No chemistry'.
+[0000] [00000.0] main: Reading ICs from file './EAGLE_ICs_50.hdf5'
+[0000] [00000.0] main: Cleaning up h-factors (h=1.000000)
+[0000] [00000.0] main: Cleaning up a-factors from velocity (a=1.000000)
+[0000] [00000.1] io_read_unit_system: Reading IC units from ICs.
+[0000] [00000.1] read_ic_parallel: Conversion needed from:
+[0000] [00000.1] read_ic_parallel: (ICs) Unit system: U_M =      1.989000e+43 g.
+[0000] [00000.1] read_ic_parallel: (ICs) Unit system: U_L =      3.085678e+24 cm.
+[0000] [00000.1] read_ic_parallel: (ICs) Unit system: U_t =      3.085678e+19 s.
+[0000] [00000.1] read_ic_parallel: (ICs) Unit system: U_I =      1.000000e+00 A.
+[0000] [00000.1] read_ic_parallel: (ICs) Unit system: U_T =      1.000000e+00 K.
+[0000] [00000.1] read_ic_parallel: to:
+[0000] [00000.1] read_ic_parallel: (internal) Unit system: U_M = 1.988480e+43 g.
+[0000] [00000.1] read_ic_parallel: (internal) Unit system: U_L = 3.085678e+24 cm.
+[0000] [00000.1] read_ic_parallel: (internal) Unit system: U_t = 3.085678e+19 s.
+[0000] [00000.1] read_ic_parallel: (internal) Unit system: U_I = 1.000000e+00 A.
+[0000] [00000.1] read_ic_parallel: (internal) Unit system: U_T = 1.000000e+00 K.
+[0000] [00027.2] main: Reading initial conditions took 27145.301 ms.
+[0000] [00027.2] main: Read 404421250 gas particles, 0 stars particles, 0 black hole particles and 829680258 gparts from the ICs.
+[0000] [00027.2] space_replicate: Replicating space 2 times along each axis.
+[0000] [00040.1] space_init: max_size set to 8000000 split_size set to 400
+[0000] [00040.1] space_init: subdepth_grav set to 4
+[0000] [00040.1] space_init: sub_size_pair_hydro set to 256000000, sub_size_self_hydro set to 32000
+[0000] [00040.1] space_init: sub_size_pair_grav set to 256000000, sub_size_self_grav set to 32000
+[0000] [00046.3] space_regrid: h_max is 2.088e+00 (cell_min=4.193e+00).
+[0000] [00046.3] space_regrid: set cell dimensions to [ 16 16 16 ].
+[0000] [00046.3] space_regrid: took 1646.983 ms.
+[0000] [00046.3] main: space_init took 19177.833 ms.
+[0000] [00046.3] potential_print_backend: External potential is 'No external potential'.
+[0000] [00046.3] main: space dimensions are [ 67.770 67.770 67.770 ].
+[0000] [00046.3] main: space is periodic.
+[0000] [00046.3] main: highest-level cell dimensions are [ 16 16 16 ].
+[0000] [00046.3] main: 101105312 parts in 4096 cells.
+[0000] [00046.3] main: 207420064 gparts in 4096 cells.
+[0000] [00046.3] main: 0 sparts in 4096 cells.
+[0000] [00046.3] main: 0 bparts in 4096 cells.
+[0000] [00046.3] main: maximum depth is 0.
+[0000] [00046.3] main: map_cellcheck picked up 0 parts.
+[0000] [00046.3] main: nr of cells at depth 0 is 4096.
+[0000] [00046.3] engine_config: Running simulation 'Untitled SWIFT simulation'.
+[0000] [00046.3] engine_config: Affinity at entry: 10101010101010101010101010101010101010101010101010101010
+[0000] [00046.3] engine_config: prefer NUMA-distant CPUs
+[0000] [00046.3] engine_init: cpu map is [ 0 2 4 6 8 10 12 14 16 18 20 22 24 26 28 30 32 34 36 38 40 42 44 46 48 50 52 54 ].
+[0000] [00046.4] engine_policy: engine policies are [  'steal'  'keep'  'mpi'  'numa affinity'  'hydro'  'self gravity'  ]
+[0000] [00046.4] eos_print: Equation of state: Ideal gas.
+[0000] [00046.4] eos_print: Adiabatic index gamma: 1.666667.
+[0000] [00046.4] hydro_props_print: Hydrodynamic scheme: Gadget-2 version of SPH (Springel 2005) in 3D.
+[0000] [00046.4] hydro_props_print: Hydrodynamic kernel: Cubic spline (M4) with eta=1.234800 (48.00 neighbours).
+[0000] [00046.4] hydro_props_print: Hydrodynamic relative tolerance in h: 0.00010 (+/- 0.0144 neighbours).
+[0000] [00046.4] hydro_props_print: Hydrodynamic integration: CFL parameter: 0.1000.
+[0000] [00046.4] viscosity_print: Artificial viscosity parameters set to alpha: 0.800
+[0000] [00046.4] hydro_props_print: Hydrodynamic integration: Max change of volume: 1.40 (max|dlog(h)/dt|=0.112157).
+[0000] [00046.4] hydro_props_print: Minimal gas temperature set to 100.000000
+[0000] [00046.4] entropy_floor_print: Entropy floor is 'no entropy floor'.
+[0000] [00046.4] gravity_props_print: Self-gravity scheme: Default (no potential)
+[0000] [00046.4] gravity_props_print: Self-gravity scheme: FMM-MM with m-poles of order 4
+[0000] [00046.4] gravity_props_print: Self-gravity time integration: eta=0.0250
+[0000] [00046.4] gravity_props_print: Self-gravity opening angle:  theta=0.7000
+[0000] [00046.4] gravity_props_print: Self-gravity softening functional form: Wendland-C2
+[0000] [00046.4] gravity_props_print: Self-gravity comoving softening:    epsilon=0.0021 (Plummer equivalent: 0.0007)
+[0000] [00046.4] gravity_props_print: Self-gravity maximal physical softening:    epsilon=0.0021 (Plummer equivalent: 0.0007)
+[0000] [00046.4] gravity_props_print: Self-gravity mesh side-length: N=128
+[0000] [00046.4] gravity_props_print: Self-gravity mesh smoothing-scale: a_smooth=1.250000
+[0000] [00046.4] gravity_props_print: Self-gravity tree cut-off ratio: r_cut_max=4.500000
+[0000] [00046.4] gravity_props_print: Self-gravity truncation cut-off ratio: r_cut_min=0.100000
+[0000] [00046.4] gravity_props_print: Self-gravity mesh truncation function: Gadget-like (using erfc())
+[0000] [00046.4] gravity_props_print: Self-gravity tree update frequency: f=0.010000
+[0000] [00046.4] engine_config: Absolute minimal timestep size: 6.938894e-20
+[0000] [00046.4] engine_config: Minimal timestep size (on time-line): 7.450580e-11
+[0000] [00046.4] engine_config: Maximal timestep size (on time-line): 1.000000e-02
+[0000] [00047.6] engine_compute_next_snapshot_time: Next snapshot time set to t=1.000000e-02.
+[0000] [00047.6] engine_compute_next_statistics_time: Next output time for stats set to t=1.000000e-02.
+[0000] [00047.6] engine_config: Restarts will be dumped every 5.000000 hours
+[0000] [00047.6] engine_config: Restarts will be dumped after the final step
+[0000] [00047.6] engine_estimate_nr_tasks: tasks per cell estimated as: 168.00, maximum tasks: 688128
+[0000] [00047.6] engine_config: runner 0 on cpuid=0 with qid=0.
+[0000] [00047.6] engine_config: runner 1 on cpuid=2 with qid=1.
+[0000] [00047.6] engine_config: runner 2 on cpuid=4 with qid=2.
+[0000] [00047.6] engine_config: runner 3 on cpuid=6 with qid=3.
+[0000] [00047.6] engine_config: runner 4 on cpuid=8 with qid=4.
+[0000] [00047.6] engine_config: runner 5 on cpuid=10 with qid=5.
+[0000] [00047.6] engine_config: runner 6 on cpuid=12 with qid=6.
+[0000] [00047.6] engine_config: runner 7 on cpuid=14 with qid=7.
+[0000] [00047.6] engine_config: runner 8 on cpuid=16 with qid=8.
+[0000] [00047.6] engine_config: runner 9 on cpuid=18 with qid=9.
+[0000] [00047.6] engine_config: runner 10 on cpuid=20 with qid=10.
+[0000] [00047.6] engine_config: runner 11 on cpuid=22 with qid=11.
+[0000] [00047.6] engine_config: runner 12 on cpuid=24 with qid=12.
+[0000] [00047.6] engine_config: runner 13 on cpuid=26 with qid=13.
+[0000] [00047.6] main: engine_init took 1271.190 ms.
+[0000] [00047.6] main: Running on 3235370000 gas particles, 0 stars particles 0 black hole particles and 3402072064 DM particles (6637442064 gravity particles)
+[0000] [00047.6] main: from t=0.000e+00 until t=1.000e-02 with 32 ranks, 14 threads / rank and 14 task queues / rank (dt_min=1.000e-10, dt_max=1.000e-02)...
+[0000] [00049.4] partition_initial_partition: took 1762.020 ms.
+[0000] [00049.4] engine_makeproxies: Looking for proxies up to 4 top-level cells away (delta_m=4 delta_p=4)
+[0000] [00049.4] engine_makeproxies: took 19.500 ms.
+[0000] [00049.4] engine_split: Re-allocating parts array from 101105312 to 121326374.
+[0000] [00057.0] engine_split: Re-allocating sparts array from 0 to 0.
+[0000] [00057.0] engine_split: Re-allocating bparts array from 0 to 0.
+[0000] [00057.0] engine_split: Re-allocating gparts array from 207420064 to 248904076.
+[0000] [00063.4] engine_split: took 15818.041 ms.
+[0000] [00073.6] engine_redistribute: 3130097462 of 3235370000 (96.75%) of particles moved
+[0000] [00073.6] engine_redistribute: 6404130540 of 6637442064 (96.48%) of g-particles moved
+[0000] [00087.9] engine_redistribute: node 0 now has 99437566 parts, 0 sparts, 0 bparts and 202744533 gparts in 148 cells.
+[0000] [00087.9] engine_redistribute: took 24477.472 ms.
+[0000] [00087.9] engine_init_particles: Setting particles to a valid state...
+[0000] [00089.1] space_first_init_parts: took 1205.022 ms.
+[0000] [00090.4] space_first_init_gparts: took 1281.955 ms.
+[0000] [00090.4] space_first_init_sparts: took 0.001 ms.
+[0000] [00090.4] space_first_init_bparts: took 0.001 ms.
+[0000] [00090.4] engine_first_init_particles: took 2487.040 ms.
+[0000] [00090.4] engine_init_particles: Computing initial gas densities.
+[0000] [00090.6] space_regrid: h_max is 2.088e+00 (cell_min=4.193e+00).
+[0000] [00090.6] space_free_cells: took 0.533 ms.
+[0000] [00090.6] space_regrid: took 182.480 ms.
+[0000] [00090.9] space_parts_get_cell_index: took 320.466 ms.
+[0000] [00091.4] space_gparts_get_cell_index: took 475.720 ms.
+[0000] [00091.9] engine_exchange_strays: sent out 0/0/0/0 parts/gparts/sparts/bparts, got 0/0/0/0 back.
+[0000] [00091.9] engine_exchange_strays: took 109.452 ms.
+[0000] [00102.2] space_rebuild: Have 148 local top-level cells with particles (total=4096)
+[0000] [00102.2] space_rebuild: Have 148 local top-level cells (total=4096)
+[0000] [00102.2] space_rebuild: hooking up cells took 0.392 ms.
+[0000] [00113.5] space_split: took 11341.947 ms.
+[0000] [00113.5] space_rebuild: took 23102.437 ms.
+[0000] [00113.5] engine_rebuild: Nr. of top-level cells: 4096 Nr. of local cells: 2196862 memory use: 2552 MB.
+[0000] [00113.5] engine_rebuild: Nr. of top-level mpoles: 4096 Nr. of local mpoles: 2196862 memory use: 806 MB.
+[0000] [00120.0] engine_rebuild: updating particle counts took 6501.380 ms.
+[0000] [00121.9] pm_mesh_compute_potential: Gpart assignment took 1912.117 ms.
+[0000] [00125.1] pm_mesh_compute_potential: Mesh comunication took 24.251 ms.
+[0000] [00125.1] pm_mesh_compute_potential: Forward Fourier transform took 12.766 ms.
+[0000] [00125.1] pm_mesh_compute_potential: Applying Green function took 5.797 ms.
+[0000] [00125.1] pm_mesh_compute_potential: Backwards Fourier transform took 8.318 ms.
+[0000] [00125.1] engine_exchange_top_multipoles: took 7.145 ms.
+[0000] [00125.1] proxy_cells_exchange: Counting cells to send took 9.063 ms.
+[0000] [00125.3] proxy_cells_exchange: Packing cells took 119.561 ms.
+[0000] [00138.3] proxy_cells_exchange: Un-packing cells took 12735.531 ms.
+[0000] [00138.3] engine_exchange_cells: took 13190.456 ms.
+[0000] [00138.3] engine_estimate_nr_tasks: tasks per cell estimated as: 13.00, maximum tasks: 240884896
+[0000] [00138.3] engine_maketasks: Making hydro tasks took 0.879 ms.
+[0000] [00138.3] engine_maketasks: Making gravity tasks took 1.460 ms.
+[0000] [00138.8] engine_maketasks: Splitting tasks took 473.021 ms.
+[0000] [00139.4] engine_maketasks: Counting and linking tasks took 657.197 ms.
+[0000] [00139.7] engine_maketasks: Setting super-pointers took 244.771 ms.
+[0000] [00140.4] engine_maketasks: Making extra hydroloop tasks took 235.473 ms.
+[0000] [00140.8] engine_maketasks: Linking gravity tasks took 452.539 ms.
+[0000] [00141.0] engine_maketasks: Creating send tasks took 177.912 ms.
+[0000] [00141.1] proxy_tags_exchange: Cell pack tags took 99.032 ms.
+[0000] [00145.6] proxy_tags_exchange: Cell unpack tags took 4434.231 ms.
+[0000] [00145.6] engine_maketasks: Exchanging cell tags took 4537.017 ms.
+[0000] [00146.3] engine_maketasks: Creating recv tasks took 693.777 ms.
+[0000] [00146.7] engine_allocate_foreign_particles: Counting number of foreign particles took 482.169 ms.
+[0000] [00146.7] engine_allocate_foreign_particles: Allocating 41545838/149245685/0/0 foreign part/gpart/spart/bpart (5071/9109/0/0 MB)
+[0000] [00148.5] engine_allocate_foreign_particles: Recursively linking foreign arrays took 1737.211 ms.
+[0000] [00148.5] engine_maketasks: Nr. of tasks: 4161526 allocated tasks: 240884896 ratio: 0.017276 memory use: 22053 MB.
+[0000] [00148.5] engine_maketasks: Nr. of links: 11567831 allocated links: 67266775 ratio: 0.171969 memory use: 1026 MB.
+[0000] [00148.7] engine_maketasks: Setting unlocks took 216.448 ms.
+[0000] [00149.1] engine_maketasks: Ranking the tasks took 406.975 ms.
+[0000] [00149.5] scheduler_reweight: took 406.077 ms.
+[0000] [00149.5] engine_maketasks: took 11186.226 ms (including reweight).
+[0000] [00149.9] space_list_useful_top_level_cells: Have 468 local top-level cells with tasks (total=4096)
+[0000] [00149.9] space_list_useful_top_level_cells: Have 4096 top-level cells with particles (total=4096)
+[0000] [00149.9] space_list_useful_top_level_cells: took 450.163 ms.
+[0000] [00151.4] engine_marktasks: took 1467.025 ms.
+[0000] [00151.4] engine_print_task_counts: Total = 4161526 (per cell = 0.30)
+[0000] [00151.5] engine_print_task_counts: task counts are [ none=0 sort=7490 self=27499 pair=2275362 sub_self=23842 sub_pair=261522 init_grav=148 init_grav_out=269815 ghost_in=4803 ghost=364246 ghost_out=4803 extra_ghost=0 drift_part=4803 drift_spart=0 drift_bpart=0 drift_gpart=148 drift_gpart_out=269815 end_hydro_force=4803 kick1=148 kick2=148 timestep=148 timestep_limiter=0 send=26815 recv=26535 grav_long_range=148 grav_mm=318189 grav_down_in=269815 grav_down=148 grav_mesh=148 grav_end_force=148 cooling=0 star_formation=0 star_formation_in=0 star_formation_out=0 logger=0 stars_in=0 stars_out=0 stars_ghost_in=0 stars_ghost=0 stars_ghost_out=0 stars_sort=0 stars_resort=0 bh_in=0 bh_out=0 bh_density_ghost=0 bh_swallow_ghost1=0 bh_swallow_ghost2=0 bh_swallow_ghost3=0 fof_self=0 fof_pair=0 skipped=37 ]
+[0000] [00151.5] engine_print_task_counts: nr_parts = 99437566.
+[0000] [00151.5] engine_print_task_counts: nr_gparts = 202744533.
+[0000] [00151.5] engine_print_task_counts: nr_sparts = 0.
+[0000] [00151.5] engine_print_task_counts: nr_bparts = 0.
+[0000] [00151.5] engine_print_task_counts: took 41.178 ms.
+[0000] [00151.5] engine_rebuild: took 61057.085 ms.
+[0000] [00153.6] engine_print_task_counts: Total = 4161526 (per cell = 0.30)
+[0000] [00153.6] engine_print_task_counts: task counts are [ none=0 sort=7490 self=435 pair=72663 sub_self=11921 sub_pair=130761 init_grav=148 init_grav_out=269815 ghost_in=4803 ghost=364246 ghost_out=4803 extra_ghost=0 drift_part=0 drift_spart=0 drift_bpart=0 drift_gpart=0 drift_gpart_out=0 end_hydro_force=0 kick1=0 kick2=0 timestep=0 timestep_limiter=0 send=2803 recv=2687 grav_long_range=0 grav_mm=0 grav_down_in=0 grav_down=0 grav_mesh=148 grav_end_force=0 cooling=0 star_formation=0 star_formation_in=0 star_formation_out=0 logger=0 stars_in=0 stars_out=0 stars_ghost_in=0 stars_ghost=0 stars_ghost_out=0 stars_sort=0 stars_resort=0 bh_in=0 bh_out=0 bh_density_ghost=0 bh_swallow_ghost1=0 bh_swallow_ghost2=0 bh_swallow_ghost3=0 fof_self=0 fof_pair=0 skipped=3288803 ]
+[0000] [00153.6] engine_print_task_counts: nr_parts = 99437566.
+[0000] [00153.6] engine_print_task_counts: nr_gparts = 202744533.
+[0000] [00153.6] engine_print_task_counts: nr_sparts = 0.
+[0000] [00153.6] engine_print_task_counts: nr_bparts = 0.
+[0000] [00153.6] engine_print_task_counts: took 38.869 ms.
+[0000] [00153.9] space_init_parts: took 299.560 ms.
+[0000] [00154.4] space_init_gparts: took 440.686 ms.
+[0000] [00154.4] space_init_sparts: took 0.001 ms.
+[0000] [00154.4] space_init_bparts: took 0.001 ms.
+[0000] [00212.9] engine_launch: took 58502.263 ms.
+[0000] [00212.9] engine_init_particles: Converting internal energy variable.
+[0000] [00213.4] space_convert_quantities: took 495.960 ms.
+[0000] [00213.4] engine_init_particles: Running initial fake time-step.
+[0000] [00218.1] space_regrid: h_max is 2.088e+00 (cell_min=4.193e+00).
+[0000] [00218.9] space_free_cells: took 819.364 ms.
+[0000] [00218.9] space_regrid: took 5570.966 ms.
+[0000] [00219.2] space_parts_get_cell_index: took 319.304 ms.
+[0000] [00219.7] space_gparts_get_cell_index: took 475.258 ms.
+[0000] [00220.4] engine_exchange_strays: sent out 0/0/0/0 parts/gparts/sparts/bparts, got 0/0/0/0 back.
+[0000] [00220.4] engine_exchange_strays: took 333.691 ms.
+[0000] [00221.2] space_rebuild: Have 148 local top-level cells with particles (total=4096)
+[0000] [00221.2] space_rebuild: Have 148 local top-level cells (total=4096)
+[0000] [00221.2] space_rebuild: hooking up cells took 0.352 ms.
+[0000] [00225.2] space_split: took 4036.668 ms.
+[0000] [00229.8] space_rebuild: took 16461.441 ms.
+[0000] [00229.8] engine_rebuild: Nr. of top-level cells: 4096 Nr. of local cells: 2196862 memory use: 2552 MB.
+[0000] [00229.8] engine_rebuild: Nr. of top-level mpoles: 4096 Nr. of local mpoles: 2196862 memory use: 806 MB.
+[0000] [00232.9] engine_rebuild: updating particle counts took 3124.019 ms.
+[0000] [00234.9] pm_mesh_compute_potential: Gpart assignment took 1954.534 ms.
+[0000] [00238.4] pm_mesh_compute_potential: Mesh comunication took 177.154 ms.
+[0000] [00238.4] pm_mesh_compute_potential: Forward Fourier transform took 9.747 ms.
+[0000] [00238.4] pm_mesh_compute_potential: Applying Green function took 8.845 ms.
+[0000] [00238.4] pm_mesh_compute_potential: Backwards Fourier transform took 6.945 ms.
+[0000] [00238.5] engine_exchange_top_multipoles: took 153.781 ms.
+[0000] [00238.6] proxy_cells_exchange: Counting cells to send took 16.995 ms.
+[0000] [00238.7] proxy_cells_exchange: Packing cells took 129.847 ms.
+[0000] [00245.9] proxy_cells_exchange: Un-packing cells took 5602.228 ms.
+[0000] [00245.9] engine_exchange_cells: took 7324.470 ms.
+[0000] [00245.9] engine_estimate_nr_tasks: tasks per cell estimated as: 13.00, maximum tasks: 240884896
+[0000] [00245.9] engine_maketasks: Making hydro tasks took 0.702 ms.
+[0000] [00245.9] engine_maketasks: Making gravity tasks took 1.780 ms.
+[0000] [00246.3] engine_maketasks: Splitting tasks took 414.123 ms.
+[0000] [00246.9] engine_maketasks: Counting and linking tasks took 656.566 ms.
+[0000] [00247.2] engine_maketasks: Setting super-pointers took 236.311 ms.
+[0000] [00247.8] engine_maketasks: Making extra hydroloop tasks took 211.428 ms.
+[0000] [00248.2] engine_maketasks: Linking gravity tasks took 370.616 ms.
+[0000] [00248.4] engine_maketasks: Creating send tasks took 179.284 ms.
+[0000] [00248.5] proxy_tags_exchange: Cell pack tags took 101.455 ms.
+[0000] [00251.2] proxy_tags_exchange: Cell unpack tags took 2735.245 ms.
+[0000] [00251.2] engine_maketasks: Exchanging cell tags took 2839.304 ms.
+[0000] [00251.9] engine_maketasks: Creating recv tasks took 685.619 ms.
+[0000] [00252.4] engine_allocate_foreign_particles: Counting number of foreign particles took 457.081 ms.
+[0000] [00252.4] engine_allocate_foreign_particles: Allocating 41545838/149245685/0/0 foreign part/gpart/spart/bpart (5071/9109/0/0 MB)
+[0000] [00253.9] engine_allocate_foreign_particles: Recursively linking foreign arrays took 1595.083 ms.
+[0000] [00253.9] engine_maketasks: Nr. of tasks: 4161445 allocated tasks: 240884896 ratio: 0.017276 memory use: 22053 MB.
+[0000] [00253.9] engine_maketasks: Nr. of links: 11567834 allocated links: 67266775 ratio: 0.171970 memory use: 1026 MB.
+[0000] [00254.2] engine_maketasks: Setting unlocks took 215.679 ms.
+[0000] [00254.6] engine_maketasks: Ranking the tasks took 406.523 ms.
+[0000] [00255.0] scheduler_reweight: took 402.783 ms.
+[0000] [00255.0] engine_maketasks: took 9107.257 ms (including reweight).
+[0000] [00255.3] space_list_useful_top_level_cells: Have 468 local top-level cells with tasks (total=4096)
+[0000] [00255.3] space_list_useful_top_level_cells: Have 4096 top-level cells with particles (total=4096)
+[0000] [00255.3] space_list_useful_top_level_cells: took 322.039 ms.
+[0000] [00256.8] engine_marktasks: took 1494.761 ms.
+[0000] [00256.8] engine_print_task_counts: Total = 4161445 (per cell = 0.30)
+[0000] [00256.8] engine_print_task_counts: task counts are [ none=0 sort=7490 self=27497 pair=2275328 sub_self=23844 sub_pair=261552 init_grav=148 init_grav_out=269788 ghost_in=4803 ghost=364246 ghost_out=4803 extra_ghost=0 drift_part=4803 drift_spart=0 drift_bpart=0 drift_gpart=148 drift_gpart_out=269788 end_hydro_force=4803 kick1=148 kick2=148 timestep=148 timestep_limiter=0 send=26815 recv=26535 grav_long_range=148 grav_mm=318193 grav_down_in=269788 grav_down=148 grav_mesh=148 grav_end_force=148 cooling=0 star_formation=0 star_formation_in=0 star_formation_out=0 logger=0 stars_in=0 stars_out=0 stars_ghost_in=0 stars_ghost=0 stars_ghost_out=0 stars_sort=0 stars_resort=0 bh_in=0 bh_out=0 bh_density_ghost=0 bh_swallow_ghost1=0 bh_swallow_ghost2=0 bh_swallow_ghost3=0 fof_self=0 fof_pair=0 skipped=37 ]
+[0000] [00256.8] engine_print_task_counts: nr_parts = 99437566.
+[0000] [00256.8] engine_print_task_counts: nr_gparts = 202744533.
+[0000] [00256.8] engine_print_task_counts: nr_sparts = 0.
+[0000] [00256.8] engine_print_task_counts: nr_bparts = 0.
+[0000] [00256.8] engine_print_task_counts: took 38.031 ms.
+[0000] [00256.8] engine_rebuild: took 43468.831 ms.
+[0000] [00258.2] space_init_parts: took 299.401 ms.
+[0000] [00258.6] space_init_gparts: took 429.025 ms.
+[0000] [00258.6] space_init_sparts: took 0.001 ms.
+[0000] [00258.6] space_init_bparts: took 0.001 ms.
+[0000] [00258.6] engine_print_task_counts: Total = 4161445 (per cell = 0.30)
+[0000] [00258.6] engine_print_task_counts: task counts are [ none=0 sort=7490 self=27497 pair=2275328 sub_self=23844 sub_pair=261552 init_grav=148 init_grav_out=269788 ghost_in=4803 ghost=364246 ghost_out=4803 extra_ghost=0 drift_part=0 drift_spart=0 drift_bpart=0 drift_gpart=0 drift_gpart_out=269788 end_hydro_force=4803 kick1=148 kick2=148 timestep=148 timestep_limiter=0 send=26815 recv=26535 grav_long_range=148 grav_mm=318193 grav_down_in=269788 grav_down=148 grav_mesh=148 grav_end_force=148 cooling=0 star_formation=0 star_formation_in=0 star_formation_out=0 logger=0 stars_in=0 stars_out=0 stars_ghost_in=0 stars_ghost=0 stars_ghost_out=0 stars_sort=0 stars_resort=0 bh_in=0 bh_out=0 bh_density_ghost=0 bh_swallow_ghost1=0 bh_swallow_ghost2=0 bh_swallow_ghost3=0 fof_self=0 fof_pair=0 skipped=4988 ]
+[0000] [00258.6] engine_print_task_counts: nr_parts = 99437566.
+[0000] [00258.6] engine_print_task_counts: nr_gparts = 202744533.
+[0000] [00258.6] engine_print_task_counts: nr_sparts = 0.
+[0000] [00258.6] engine_print_task_counts: nr_bparts = 0.
+[0000] [00258.6] engine_print_task_counts: took 38.275 ms.
+[0000] [00265.1] scheduler_write_dependencies: Printing task graph took 6489.878 ms.
+[0000] [00465.4] engine_launch: took 200127.698 ms.
+[0000] [00467.6] engine_collect_end_of_step: took 2185.183 ms.
+[0000] [00471.1] engine_init_particles: took 383163.438 ms.
+[0000] [00471.1] engine_dump_snapshot: Dumping snapshot at t=0.000000e+00
+[0000] [00471.8] write_output_parallel: Preparing file on rank 0 took 150.042 ms.
+[0000] [00474.3] write_output_parallel: Setting parallel HDF5 access properties took 2470.438 ms.
+[0000] [00474.3] write_output_parallel: Opening HDF5 file  took 25.204 ms.
+[0000] [00474.3] write_output_parallel: Snapshot and internal units match. No conversion needed.
+[0000] [00474.6] writeArray_chunk: Copying for 'Coordinates' took 291.417 ms.
+[0000] [00482.0] writeArray_chunk: H5Dwrite for 'Coordinates' (65504 MB) took 7376.735 ms (speed = 8879.809457 MB/s).
+[0000] [00482.0] writeArray: Need to redo one iteration for array 'Coordinates'
+[0000] [00482.0] writeArray_chunk: Copying for 'Coordinates' took 52.167 ms.
+[0000] [00484.0] writeArray_chunk: H5Dwrite for 'Coordinates' (8516 MB) took 1955.415 ms (speed = 4355.085662 MB/s).
+[0000] [00484.0] writeArray: 'Coordinates' took 9690.297 ms.
+[0000] [00484.4] writeArray_chunk: Copying for 'Velocities' took 395.907 ms.
+[0000] [00488.6] writeArray_chunk: H5Dwrite for 'Velocities' (37009 MB) took 4135.312 ms (speed = 8949.506082 MB/s).
+[0000] [00488.6] writeArray: 'Velocities' took 4569.417 ms.
+[0000] [00488.8] writeArray_chunk: Copying for 'Masses' took 237.274 ms.
+[0000] [00490.4] writeArray_chunk: H5Dwrite for 'Masses' (12326 MB) took 1575.898 ms (speed = 7821.570037 MB/s).
+[0000] [00490.4] writeArray: 'Masses' took 1816.511 ms.
+[0000] [00490.6] writeArray_chunk: Copying for 'SmoothingLength' took 232.948 ms.
+[0000] [00492.8] writeArray_chunk: H5Dwrite for 'SmoothingLength' (12326 MB) took 2120.975 ms (speed = 5811.479282 MB/s).
+[0000] [00492.8] writeArray: 'SmoothingLength' took 2388.997 ms.
+[0000] [00493.0] writeArray_chunk: Copying for 'Entropy' took 234.293 ms.
+[0000] [00494.4] writeArray_chunk: H5Dwrite for 'Entropy' (12326 MB) took 1415.679 ms (speed = 8706.778570 MB/s).
+[0000] [00494.4] writeArray: 'Entropy' took 1652.915 ms.
+[0000] [00494.7] writeArray_chunk: Copying for 'ParticleIDs' took 252.770 ms.
+[0000] [00497.7] writeArray_chunk: H5Dwrite for 'ParticleIDs' (24667 MB) took 3009.274 ms (speed = 8196.992566 MB/s).
+[0000] [00497.7] writeArray: 'ParticleIDs' took 3265.569 ms.
+[0000] [00497.9] writeArray_chunk: Copying for 'Density' took 233.245 ms.
+[0000] [00499.7] writeArray_chunk: H5Dwrite for 'Density' (12326 MB) took 1784.898 ms (speed = 6905.715993 MB/s).
+[0000] [00499.7] writeArray: 'Density' took 2023.345 ms.
+[0000] [00500.1] writeArray_chunk: Copying for 'InternalEnergy' took 356.063 ms.
+[0000] [00501.5] writeArray_chunk: H5Dwrite for 'InternalEnergy' (12326 MB) took 1451.001 ms (speed = 8494.826863 MB/s).
+[0000] [00501.5] writeArray: 'InternalEnergy' took 1819.275 ms.
+[0000] [00501.8] writeArray_chunk: Copying for 'Pressure' took 285.977 ms.
+[0000] [00503.3] writeArray_chunk: H5Dwrite for 'Pressure' (12326 MB) took 1471.362 ms (speed = 8377.272565 MB/s).
+[0000] [00503.3] writeArray: 'Pressure' took 1760.167 ms.
+[0000] [00503.3] writeArray_chunk: Copying for 'Potential' took 39.848 ms.
+[0000] [00505.0] writeArray_chunk: H5Dwrite for 'Potential' (12326 MB) took 1631.410 ms (speed = 7555.427921 MB/s).
+[0000] [00505.0] writeArray: 'Potential' took 1674.486 ms.
+[0000] [00505.0] write_output_parallel: Closing particle group took 0.018 ms.
+[0000] [00508.7] writeArray_chunk: Copying for 'Coordinates' took 197.290 ms.
+[0000] [00513.1] writeArray_chunk: H5Dwrite for 'Coordinates' (65504 MB) took 4411.951 ms (speed = 14846.945818 MB/s).
+[0000] [00513.1] writeArray: Need to redo one iteration for array 'Coordinates'
+[0000] [00513.2] writeArray_chunk: Copying for 'Coordinates' took 49.018 ms.
+[0000] [00514.3] writeArray_chunk: H5Dwrite for 'Coordinates' (12328 MB) took 1091.917 ms (speed = 11290.240560 MB/s).
+[0000] [00514.3] writeArray: 'Coordinates' took 6177.356 ms.
+[0000] [00514.5] writeArray_chunk: Copying for 'Velocities' took 256.266 ms.
+[0000] [00523.4] writeArray_chunk: H5Dwrite for 'Velocities' (38917 MB) took 8832.217 ms (speed = 4406.255065 MB/s).
+[0000] [00523.4] writeArray: 'Velocities' took 9094.106 ms.
+[0000] [00523.5] writeArray_chunk: Copying for 'Masses' took 136.622 ms.
+[0000] [00525.1] writeArray_chunk: H5Dwrite for 'Masses' (12959 MB) took 1555.043 ms (speed = 8333.533743 MB/s).
+[0000] [00525.1] writeArray: 'Masses' took 1694.931 ms.
+[0000] [00525.2] writeArray_chunk: Copying for 'ParticleIDs' took 156.002 ms.
+[0000] [00528.0] writeArray_chunk: H5Dwrite for 'ParticleIDs' (25939 MB) took 2809.229 ms (speed = 9233.492697 MB/s).
+[0000] [00528.0] writeArray: 'ParticleIDs' took 2969.115 ms.
+[0000] [00528.1] write_output_parallel: Closing particle group took 0.031 ms.
+[0000] [00528.1] write_output_parallel: Closing property descriptor took 0.093 ms.
+[0000] [00528.1] write_output_parallel: Closing file took 57.537 ms.
+[0000] [00528.1] engine_dump_snapshot: writing particle properties took 57045.184 ms.
+[0000] [00528.1] engine_print_stats: Saving statistics at t=0.000000e+00
+[0000] [00528.8] engine_print_stats: took 644.189 ms.
+#   Step           Time Scale-factor     Redshift      Time-step Time-bins      Updates    g-Updates    s-Updates    b-Updates  Wall-clock time [ms]  Props
+       0   0.000000e+00    1.0000000    0.0000000   0.000000e+00    1   56   3235370000   6637442064            0            0            383163.438     27
+[0000] [00528.9] engine_repartition_trigger: took 0.052 ms
+[0000] [00529.0] engine_prepare: Communicating rebuild flag took 13.940 ms.
+[0000] [00531.1] space_synchronize_particle_positions: took 820.192 ms.
+[0000] [00531.1] engine_drift_all: took 2115.084 ms.
+[0000] [00531.7] space_regrid: h_max is 2.088e+00 (cell_min=4.193e+00).
+[0000] [00532.3] space_free_cells: took 582.551 ms.
+[0000] [00532.3] space_regrid: took 1211.333 ms.
+[0000] [00532.6] space_parts_get_cell_index: took 318.748 ms.
+[0000] [00533.1] space_gparts_get_cell_index: took 475.848 ms.
+[0000] [00533.8] engine_exchange_strays: sent out 27/72/0/0 parts/gparts/sparts/bparts, got 15/38/0/0 back.
+[0000] [00533.8] engine_exchange_strays: took 354.419 ms.
+[0000] [00534.5] space_rebuild: Have 148 local top-level cells with particles (total=4096)
+[0000] [00534.5] space_rebuild: Have 148 local top-level cells (total=4096)
+[0000] [00534.5] space_rebuild: hooking up cells took 0.351 ms.
+[0000] [00538.7] space_split: took 4228.841 ms.
+[0000] [00545.0] space_rebuild: took 13919.664 ms.
+[0000] [00545.0] engine_rebuild: Nr. of top-level cells: 4096 Nr. of local cells: 2196830 memory use: 2552 MB.
+[0000] [00545.0] engine_rebuild: Nr. of top-level mpoles: 4096 Nr. of local mpoles: 2196830 memory use: 806 MB.
+[0000] [00547.4] engine_rebuild: updating particle counts took 2399.667 ms.
+[0000] [00549.3] pm_mesh_compute_potential: Gpart assignment took 1922.685 ms.
+[0000] [00552.6] pm_mesh_compute_potential: Mesh comunication took 21.378 ms.
+[0000] [00552.6] pm_mesh_compute_potential: Forward Fourier transform took 9.037 ms.
+[0000] [00552.6] pm_mesh_compute_potential: Applying Green function took 4.828 ms.
+[0000] [00552.6] pm_mesh_compute_potential: Backwards Fourier transform took 7.050 ms.
+[0000] [00552.6] engine_exchange_top_multipoles: took 6.157 ms.
+[0000] [00552.7] proxy_cells_exchange: Counting cells to send took 91.929 ms.
+[0000] [00552.8] proxy_cells_exchange: Packing cells took 138.757 ms.
+[0000] [00560.2] proxy_cells_exchange: Un-packing cells took 5923.185 ms.
+[0000] [00560.2] engine_exchange_cells: took 7556.804 ms.
+[0000] [00560.2] engine_estimate_nr_tasks: tasks per cell estimated as: 13.00, maximum tasks: 240884896
+[0000] [00560.2] engine_maketasks: Making hydro tasks took 0.804 ms.
+[0000] [00560.2] engine_maketasks: Making gravity tasks took 1.707 ms.
+[0000] [00560.6] engine_maketasks: Splitting tasks took 411.497 ms.
+[0000] [00561.2] engine_maketasks: Counting and linking tasks took 658.450 ms.
+[0000] [00561.5] engine_maketasks: Setting super-pointers took 231.219 ms.
+[0000] [00562.1] engine_maketasks: Making extra hydroloop tasks took 211.727 ms.
+[0000] [00562.5] engine_maketasks: Linking gravity tasks took 366.720 ms.
+[0000] [00562.6] engine_maketasks: Creating send tasks took 180.557 ms.
+[0000] [00562.7] proxy_tags_exchange: Cell pack tags took 102.595 ms.
+[0000] [00566.2] proxy_tags_exchange: Cell unpack tags took 3439.954 ms.
+[0000] [00566.2] engine_maketasks: Exchanging cell tags took 3545.844 ms.
+[0000] [00566.9] engine_maketasks: Creating recv tasks took 690.561 ms.
+[0000] [00567.3] engine_allocate_foreign_particles: Counting number of foreign particles took 453.960 ms.
+[0000] [00567.3] engine_allocate_foreign_particles: Allocating 41545838/149245685/0/0 foreign part/gpart/spart/bpart (5071/9109/0/0 MB)
+[0000] [00568.9] engine_allocate_foreign_particles: Recursively linking foreign arrays took 1590.031 ms.
+[0000] [00568.9] engine_maketasks: Nr. of tasks: 4161528 allocated tasks: 240884896 ratio: 0.017276 memory use: 22053 MB.
+[0000] [00568.9] engine_maketasks: Nr. of links: 11567625 allocated links: 67266925 ratio: 0.171966 memory use: 1026 MB.
+[0000] [00569.1] engine_maketasks: Setting unlocks took 211.260 ms.
+[0000] [00569.5] engine_maketasks: Ranking the tasks took 399.046 ms.
+[0000] [00570.0] scheduler_reweight: took 421.180 ms.
+[0000] [00570.0] engine_maketasks: took 9798.262 ms (including reweight).
+[0000] [00570.4] space_list_useful_top_level_cells: Have 468 local top-level cells with tasks (total=4096)
+[0000] [00570.4] space_list_useful_top_level_cells: Have 4096 top-level cells with particles (total=4096)
+[0000] [00570.4] space_list_useful_top_level_cells: took 455.438 ms.
+[0000] [00570.4] engine_marktasks: took 18.341 ms.
+[0000] [00570.4] engine_print_task_counts: System total: 134326514, no. cells: 408546434
+[0000] [00570.4] engine_print_task_counts: Total = 4161528 (per cell = 0.30)
+[0000] [00570.4] engine_print_task_counts: Total = 4161528 (maximum per cell = 0.62)
+[0000] [00570.5] engine_print_task_counts: task counts are [ none=0 sort=0 self=0 pair=0 sub_self=0 sub_pair=0 init_grav=0 init_grav_out=0 ghost_in=0 ghost=0 ghost_out=0 extra_ghost=0 drift_part=0 drift_spart=0 drift_bpart=0 drift_gpart=0 drift_gpart_out=0 end_hydro_force=0 kick1=0 kick2=0 timestep=0 timestep_limiter=0 send=0 recv=0 grav_long_range=0 grav_mm=0 grav_down_in=0 grav_down=0 grav_mesh=0 grav_end_force=0 cooling=0 star_formation=0 star_formation_in=0 star_formation_out=0 logger=0 stars_in=0 stars_out=0 stars_ghost_in=0 stars_ghost=0 stars_ghost_out=0 stars_sort=0 stars_resort=0 bh_in=0 bh_out=0 bh_density_ghost=0 bh_swallow_ghost1=0 bh_swallow_ghost2=0 bh_swallow_ghost3=0 fof_self=0 fof_pair=0 skipped=4161528 ]
+[0000] [00570.5] engine_print_task_counts: nr_parts = 99437554.
+[0000] [00570.5] engine_print_task_counts: nr_gparts = 202744499.
+[0000] [00570.5] engine_print_task_counts: nr_sparts = 0.
+[0000] [00570.5] engine_print_task_counts: nr_bparts = 0.
+[0000] [00570.5] engine_print_task_counts: took 34.713 ms.
+[0000] [00570.5] engine_rebuild: took 39393.519 ms.
+[0000] [00570.5] engine_prepare: took 41522.556 ms (including unskip, rebuild and reweight).
+[0000] [00570.5] engine_print_task_counts: System total: 134326514, no. cells: 408546434
+[0000] [00570.5] engine_print_task_counts: Total = 4161528 (per cell = 0.30)
+[0000] [00570.5] engine_print_task_counts: Total = 4161528 (maximum per cell = 0.62)
+[0000] [00570.5] engine_print_task_counts: task counts are [ none=0 sort=0 self=0 pair=0 sub_self=0 sub_pair=0 init_grav=0 init_grav_out=0 ghost_in=0 ghost=0 ghost_out=0 extra_ghost=0 drift_part=0 drift_spart=0 drift_bpart=0 drift_gpart=0 drift_gpart_out=0 end_hydro_force=0 kick1=0 kick2=0 timestep=0 timestep_limiter=0 send=0 recv=0 grav_long_range=0 grav_mm=0 grav_down_in=0 grav_down=0 grav_mesh=0 grav_end_force=0 cooling=0 star_formation=0 star_formation_in=0 star_formation_out=0 logger=0 stars_in=0 stars_out=0 stars_ghost_in=0 stars_ghost=0 stars_ghost_out=0 stars_sort=0 stars_resort=0 bh_in=0 bh_out=0 bh_density_ghost=0 bh_swallow_ghost1=0 bh_swallow_ghost2=0 bh_swallow_ghost3=0 fof_self=0 fof_pair=0 skipped=4161528 ]
+[0000] [00570.5] engine_print_task_counts: nr_parts = 99437554.
+[0000] [00570.5] engine_print_task_counts: nr_gparts = 202744499.
+[0000] [00570.5] engine_print_task_counts: nr_sparts = 0.
+[0000] [00570.5] engine_print_task_counts: nr_bparts = 0.
+[0000] [00570.5] engine_print_task_counts: took 34.340 ms.
+[0000] [00570.5] engine_launch: took 45.376 ms.
+[0000] [00572.7] engine_collect_end_of_step: took 2121.066 ms.
+[0000] [00572.7] engine_dump_restarts: Writing restart files
+[0000] [00573.6] space_synchronize_particle_positions: took 818.481 ms.
+[0000] [00573.6] engine_drift_all: took 940.200 ms.
+[0000] [00573.6] engine_estimate_nr_tasks: tasks per cell estimated as: 13.00, maximum tasks: 240884896
+[0000] [00607.3] engine_dump_restarts: Dumping restart files took 34624.127 ms
+       1   9.536743e-09    1.0000000    0.0000000   9.536743e-09   36   36          616          616            0            0             43723.523     33
+[0000] [00609.4] space_synchronize_particle_positions: took 820.902 ms.
+[0000] [00609.4] engine_drift_all: took 2129.369 ms.
+[0000] [00609.4] engine_print_stats: Saving statistics at t=1.907349e-08
+[0000] [00613.6] engine_print_stats: took 4225.332 ms.
+[0000] [00613.6] engine_dump_snapshot: Dumping snapshot at t=1.907349e-08
+[0000] [00613.7] write_output_parallel: Preparing file on rank 0 took 55.890 ms.
+[0000] [00616.1] write_output_parallel: Setting parallel HDF5 access properties took 2422.421 ms.
+[0000] [00616.1] write_output_parallel: Opening HDF5 file  took 25.819 ms.
+[0000] [00616.1] write_output_parallel: Snapshot and internal units match. No conversion needed.
+[0000] [00616.4] writeArray_chunk: Copying for 'Coordinates' took 290.351 ms.
+[0000] [00621.8] writeArray_chunk: H5Dwrite for 'Coordinates' (65504 MB) took 5310.185 ms (speed = 12335.539963 MB/s).
+[0000] [00621.8] writeArray: Need to redo one iteration for array 'Coordinates'
+[0000] [00621.8] writeArray_chunk: Copying for 'Coordinates' took 53.105 ms.
+[0000] [00624.5] writeArray_chunk: H5Dwrite for 'Coordinates' (8516 MB) took 2698.929 ms (speed = 3155.325739 MB/s).
+[0000] [00624.5] writeArray: 'Coordinates' took 8365.135 ms.
+[0000] [00624.9] writeArray_chunk: Copying for 'Velocities' took 394.075 ms.
+[0000] [00629.6] writeArray_chunk: H5Dwrite for 'Velocities' (37009 MB) took 4677.470 ms (speed = 7912.182932 MB/s).
+[0000] [00629.6] writeArray: 'Velocities' took 5078.242 ms.
+[0000] [00629.8] writeArray_chunk: Copying for 'Masses' took 233.146 ms.
+[0000] [00631.5] writeArray_chunk: H5Dwrite for 'Masses' (12326 MB) took 1641.328 ms (speed = 7509.771444 MB/s).
+[0000] [00631.5] writeArray: 'Masses' took 1880.574 ms.
+[0000] [00631.7] writeArray_chunk: Copying for 'SmoothingLength' took 233.901 ms.
+[0000] [00633.2] writeArray_chunk: H5Dwrite for 'SmoothingLength' (12326 MB) took 1523.634 ms (speed = 8089.870472 MB/s).
+[0000] [00633.2] writeArray: 'SmoothingLength' took 1760.126 ms.
+[0000] [00633.5] writeArray_chunk: Copying for 'Entropy' took 232.709 ms.
+[0000] [00635.0] writeArray_chunk: H5Dwrite for 'Entropy' (12326 MB) took 1544.942 ms (speed = 7978.292320 MB/s).
+[0000] [00635.0] writeArray: 'Entropy' took 1780.238 ms.
+[0000] [00635.3] writeArray_chunk: Copying for 'ParticleIDs' took 252.247 ms.
+[0000] [00638.7] writeArray_chunk: H5Dwrite for 'ParticleIDs' (24667 MB) took 3402.408 ms (speed = 7249.864957 MB/s).
+[0000] [00638.7] writeArray: 'ParticleIDs' took 3659.235 ms.
+[0000] [00638.9] writeArray_chunk: Copying for 'Density' took 233.005 ms.
+[0000] [00640.4] writeArray_chunk: H5Dwrite for 'Density' (12326 MB) took 1460.544 ms (speed = 8439.322261 MB/s).
+[0000] [00640.4] writeArray: 'Density' took 1696.810 ms.
+[0000] [00640.7] writeArray_chunk: Copying for 'InternalEnergy' took 356.052 ms.
+[0000] [00642.1] writeArray_chunk: H5Dwrite for 'InternalEnergy' (12326 MB) took 1411.796 ms (speed = 8730.720744 MB/s).
+[0000] [00642.1] writeArray: 'InternalEnergy' took 1770.615 ms.
+[0000] [00642.4] writeArray_chunk: Copying for 'Pressure' took 283.546 ms.
+[0000] [00644.0] writeArray_chunk: H5Dwrite for 'Pressure' (12326 MB) took 1544.509 ms (speed = 7980.528932 MB/s).
+[0000] [00644.0] writeArray: 'Pressure' took 1831.675 ms.
+[0000] [00644.0] writeArray_chunk: Copying for 'Potential' took 39.912 ms.
+[0000] [00645.7] writeArray_chunk: H5Dwrite for 'Potential' (12326 MB) took 1690.585 ms (speed = 7290.965917 MB/s).
+[0000] [00645.7] writeArray: 'Potential' took 1735.873 ms.
+[0000] [00645.7] write_output_parallel: Closing particle group took 0.021 ms.
+[0000] [00649.2] writeArray_chunk: Copying for 'Coordinates' took 212.058 ms.
+[0000] [00653.6] writeArray_chunk: H5Dwrite for 'Coordinates' (65504 MB) took 4447.718 ms (speed = 14727.553171 MB/s).
+[0000] [00653.6] writeArray: Need to redo one iteration for array 'Coordinates'
+[0000] [00653.7] writeArray_chunk: Copying for 'Coordinates' took 49.599 ms.
+[0000] [00654.8] writeArray_chunk: H5Dwrite for 'Coordinates' (12328 MB) took 1108.524 ms (speed = 11121.090202 MB/s).
+[0000] [00654.8] writeArray: 'Coordinates' took 6107.849 ms.
+[0000] [00655.2] writeArray_chunk: Copying for 'Velocities' took 260.217 ms.
+[0000] [00661.6] writeArray_chunk: H5Dwrite for 'Velocities' (38917 MB) took 6394.467 ms (speed = 6086.043018 MB/s).
+[0000] [00661.6] writeArray: 'Velocities' took 6792.659 ms.
+[0000] [00661.7] writeArray_chunk: Copying for 'Masses' took 141.410 ms.
+[0000] [00663.4] writeArray_chunk: H5Dwrite for 'Masses' (12959 MB) took 1634.161 ms (speed = 7930.063735 MB/s).
+[0000] [00663.4] writeArray: 'Masses' took 1779.094 ms.
+[0000] [00663.5] writeArray_chunk: Copying for 'ParticleIDs' took 157.625 ms.
+[0000] [00666.5] writeArray_chunk: H5Dwrite for 'ParticleIDs' (25939 MB) took 2964.793 ms (speed = 8749.008876 MB/s).
+[0000] [00666.5] writeArray: 'ParticleIDs' took 3126.314 ms.
+[0000] [00666.5] write_output_parallel: Closing particle group took 0.036 ms.
+[0000] [00666.5] write_output_parallel: Closing property descriptor took 0.086 ms.
+[0000] [00666.6] write_output_parallel: Closing file took 36.125 ms.
+[0000] [00666.6] engine_dump_snapshot: writing particle properties took 52922.301 ms.
+[0000] [00670.8] main: done. Bye.

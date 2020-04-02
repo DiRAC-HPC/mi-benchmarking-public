@@ -1,7 +1,7 @@
 To generate scaling plots from the timesteps files found in the data subdirectory run the plotting scripts followed by a list of directories with the suffix `timesteps_` and a list of strings corresponding to the titles for the legend. For example:
 
 ```
-python plot_weak_scaling_results.py ../results/cosma7/single-node/timesteps_ ../results/csd3/single-node/weak_scaling/timesteps_ "COSMA7" "CSD3"
+python plot_weak_scaling_results.py ../results/cosma7/single-node/timesteps_ ../results/cascade-lake/Durham/weak_scaling/timesteps_ "skylake" "cascade lake"
 ```
 
 To generate strong scaling results use `plot_strong_scaling_results.py` in a similar fashion.

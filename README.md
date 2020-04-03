@@ -25,7 +25,7 @@ To see a list of possible configure options use `--help`. Once configured, compi
 make -j
 ```
 
-Specific configuration and compilation options for each of the benchmark platforms can be found in the relevant subdirectories of the [/data](/data) directory for each system and compiler combination.
+Specific configuration and compilation options for each of the benchmark platforms can be found in the relevant `data/` subdirectories of the benchmark directories for each system and compiler combination.
 
 ### Fetching input data
 
@@ -53,7 +53,7 @@ To set the number of steps to run the benchmark for use the `-n` option (here, w
 
 ### DiRAC Benchmarks
 
-Parameter files (.yml) and command lines to run the examples are provided in the [data/](data/) subdirectory. The actual data for the initial conditions is obtained using the `getIC.sh` script found in the source example subdirectories as described above. 
+Parameter files (.yml) and command lines to run the examples are provided in the `data/` subdirectories for each individual benchmark. The actual data for the initial conditions is obtained using the `getIC.sh` script found in the source example subdirectories as described above. 
 
 #### Single node benchmark
 
@@ -67,7 +67,7 @@ The benchmark has been run on the following systems:
 | DiRAC DIaC (Peta4-Skylake) | 2x Intel Xeon Skylake Gold 6142, min. 192 GiB DDR4 | Intel OPA | Intel 2018; Intel MPI 2018 | 
 | DiRAC DIaL | 2x Intel Xeon Skylake Gold 6140, 192 GiB DDR4 | Mellanox EDR | Intel 2018; Intel MPI 2018 |
 
-Output from benchmark runs can be found in the [results/](results/) subdirectory.
+Output from benchmark runs can be found in the `results/` subdirectories of the specific `EAGLE_12` benchmark directories.
 
 #### Multi-node benchmark
 
@@ -80,11 +80,11 @@ The benchmark has been run on the following systems:
 | DiRAC Memory Intensive (COSMA7) | 2x Intel Xeon Skylake Gold 5120, 512 GiB DDR4 | Mellanox EDR | Intel 2018; Intel MPI 2018 |
 | DiRAC DIaC (Peta4-Skylake) | 2x Intel Xeon Skylake Gold 6142, min. 192 GiB DDR4 | Intel OPA | Intel 2018; Intel MPI 2018 | 
 
-Output from benchmark runs can be found in the [results/](results/) subdirectory.
+Output from benchmark runs can be found in the `results/` subdirectory of the `EAGLE_25_strong_scaling` directory.
 
 #### Evaluating benchmark performance
 
-Each run produces a `timesteps_X.txt` file, where `X` denotes the number of threads used. To process the data run the python scripts provided in the [analysis/](analysis/) subdirectory on these timesteps files (instructions on how to do so are provided there also). These scripts add up the amount of time each timestep took as specified in the `timesteps_X.txt` files to compute total runtime and plot the results for a number of different thread counts. The analysis scripts have been run on the data produced, however it could be useful to run them again to compare your results to the ones presented here. The strong scaling plots by default compute results with respect to the number of threads. To compute values on a per node basis uncomment line 381 in `analysis/plot_strong_scaling_results.py`.
+Each run produces a `timesteps_X.txt` file, where `X` denotes the number of threads used. Examples of how to extract and process the performance data can be found in the [analysis/](analysis/) subdirectory.
 
 ## Further information
 
